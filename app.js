@@ -11,12 +11,14 @@ const cors = require("cors");
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
-
 app.use("/crud", routes);
 
+// app get functions from routes
 app.get("/", (req, res) => {
   res.send("Home route");
 });
+
+// listening to database ports
 app.listen(PORT, () => {
   db.dbConnectionMethod();
   console.log("server started at port", PORT);
